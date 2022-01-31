@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chantiers{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Info Chantier</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <tbody>
+                        <tr>
+                            <td>ID</td>
+                            <td>{{ sites.id }}</td>
+                        </tr>
+                        <tr>
+                            <td>Nom</td>
+                            <td>{{ sites.name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Adresse</td>
+                            <td>{{ sites.address }}</td>
+                        </tr>
+                        <tr>
+                            <td>Date de début</td>
+                            <td>{{ sites.startDate|date('d/m/Y') }}</td>
+                        </tr>
+                        <tr>
+                            <td>Nombre Utlisateur</td>
+                            <td>{{ scoreUsers }} Utlisateur(s)</td>
+                        </tr>
+                        <tr>
+                            <td>Nombre d’heures</td>
+                            <td> {{ scoreSumLengthTime }} Heure(s)</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+    <!-- /.row -->
+{% endblock %}

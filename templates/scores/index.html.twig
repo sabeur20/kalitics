@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pointages{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title toastrDefaultWarning">Liste des pointages</h3>
+
+                    <div class="card-tools">
+                        <div class="input-group-append">
+                            <a href="{{ path('new_score') }}" class="btn btn-success btn-block"><i
+                                        class="fa fa-plus-circle"></i> Ajouter </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Utilisateur</th>
+                            <th>Chantier</th>
+                            <th>Date</th>
+                            <th>Durée</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in scores %}
+                            <tr>
+                                <td>{{ entity.id }}</td>
+                                <td>{{ entity.users }}</td>
+                                <td>{{ entity.sites }}</td>
+                                <td>{{ entity.scoreDate|date('d/m/Y') }}</td>
+                                <td>{{ entity.lengthTime }}</td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+    <!-- /.row -->
+{% endblock %}
+

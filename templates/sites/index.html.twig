@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chantiers{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Liste des Chantiers</h3>
+
+                    <div class="card-tools">
+                        <div class="input-group-append">
+                            <a href="{{ path('new_site') }}" class="btn btn-success btn-block"><i
+                                        class="fa fa-plus-circle"></i> Ajouter </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Adresse</th>
+                            <th>Date de début</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in sites %}
+                            <tr>
+                                <td>{{ entity.id }}</td>
+                                <td>{{ entity.name }}</td>
+                                <td>{{ entity.address }}</td>
+                                <td>{{ entity.startDate|date('d/m/Y') }}</td>
+                                <td>
+                                    <a href="{{ path('show_site',{'id':entity.id }) }}"
+                                       class="btn btn-info btn-block"><i
+                                                class="fa fa-info"></i> Info </a>
+                                </td>
+                                <td>
+                                    <a href="{{ path('edit_site',{'id':entity.id }) }}"
+                                       class="btn btn-primary btn-block"><i
+                                                class="fa fa-edit"></i> Modifier </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+    <!-- /.row -->
+{% endblock %}
