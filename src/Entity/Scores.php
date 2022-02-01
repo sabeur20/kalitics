@@ -4,9 +4,10 @@ namespace App\Entity;
 
 use App\Repository\ScoresRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=ScoresRepository::class)
+ *
  */
 class Scores
 {
@@ -20,22 +21,26 @@ class Scores
     /**
      * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="scores")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $users;
 
     /**
      * @ORM\ManyToOne(targetEntity=Sites::class, inversedBy="scores")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $sites;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank
      */
     private $scoreDate;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $lengthTime;
 
